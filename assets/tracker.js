@@ -112,26 +112,33 @@ const stageNames = {
 };
 
 const chests = [
-    { id: 'gc01', en: 'Crash Site Area', es: 'Zona del Naufragio', coord: '-15, 97, -8' },
-    { id: 'gc02', en: 'Near Starting Pod', es: 'Cerca de la Capsula', coord: '40, 100, 50' },
-    { id: 'gc03', en: 'First Cave Entrance', es: 'Primera Entrada de Cueva', coord: '95, 91, 285' },
-    { id: 'gc04', en: 'Waterfall Cave', es: 'Cueva de la Cascada', coord: '285, 96, -505' },
-    { id: 'gc05', en: 'Icespire Base', es: 'Base de las Puntas de Hielo', coord: '-1045, 165, -270' },
-    { id: 'gc06', en: 'Icespire Peak', es: 'Cima de las Puntas de Hielo', coord: '-1090, 220, -310' },
-    { id: 'gc07', en: 'Deep Icespire Cave', es: 'Cueva Profunda Icespire', coord: '-1080, 80, -290' },
-    { id: 'gc08', en: 'Arches Area', es: 'Zona de los Arcos', coord: '10, 147, 1930' },
-    { id: 'gc09', en: 'Left Path Arches', es: 'Arcos Camino Izquierdo', coord: '130, 155, 1950' },
-    { id: 'gc10', en: 'Sand Dunes', es: 'Dunas de Arena', coord: '700, 100, 800' },
-    { id: 'gc11', en: 'Hidden Cave Behind Waterfall', es: 'Cueva Oculta Detras de Cascada', coord: '290, 90, -520' },
-    { id: 'gc12', en: 'Sulfur Fields Cave', es: 'Cueva de los Campos de Azufre', coord: '450, 85, 400' },
-    { id: 'gc13', en: 'Lava Biome Entrance', es: 'Entrada del Bioma de Lava', coord: '-600, 140, -900' },
-    { id: 'gc14', en: 'Lava Biome Deep', es: 'Bioma de Lava Profundo', coord: '-650, 80, -950' },
-    { id: 'gc15', en: 'Mountain Ridge', es: 'Cresta Montana', coord: '-500, 200, 500' },
-    { id: 'gc16', en: 'Abandoned Wreck', es: 'Naufragio Abandonado', coord: '350, 110, -350' },
-    { id: 'gc17', en: 'Underground Lake Cave', es: 'Cueva del Lago Subterraneo', coord: '150, 75, 600' },
-    { id: 'gc18', en: 'Crystal Cave', es: 'Cueva de Cristales', coord: '-300, 80, 700' },
-    { id: 'gc19', en: 'Aluminum Mountain', es: 'Montana de Aluminio', coord: '500, 180, 1000' },
-    { id: 'gc20', en: 'The Maze Cave', es: 'Cueva del Laberinto', coord: '-200, 70, 900' },
+    { id: 'gc01', en: 'Starting Valley', es: 'Valle Inicial', coord: '260:27:487', desc_en: 'Bottom of the wall opposite Steep Hill', desc_es: 'Al pie de la pared opuesta a Steep Hill', biome: 'Starting Valley' },
+    { id: 'gc02', en: 'Steep Hill', es: 'Colina Empinada', coord: '291:162:1008', desc_en: 'Top of ship', desc_es: 'Tope del barco', biome: 'Steep Hill' },
+    { id: 'gc03', en: 'Aluminum Hills', es: 'Colinas de Aluminio', coord: '1023:17:7', desc_en: 'Behind a northern aluminum pillar', desc_es: 'Detras de un pilar de aluminio al norte', biome: 'Aluminum Hills' },
+    { id: 'gc04', en: 'Iridium Mine', es: 'Mina de Iridio', coord: '834:40:1194', desc_en: 'Behind the second floor\'s rock slate', desc_es: 'Detras de la losa de roca del segundo piso', biome: 'Iridium Mine' },
+    { id: 'gc05', en: 'Cracked Spires', es: 'Agujas Agrietadas', coord: '400:5:-246', desc_en: 'In the shade under the spike', desc_es: 'A la sombra bajo la aguja', biome: 'Cracked Spires' },
+    { id: 'gc06', en: 'Central Plateau', es: 'Meseta Central', coord: '922:19:357', desc_en: 'Under the rock bridge in the creek between Plateau and Aluminum Hills', desc_es: 'Bajo el puente de roca en el arroyo entre la Meseta y las Colinas de Aluminio', biome: 'Central Plateau' },
+    { id: 'gc07', en: 'Labyrinth Canyons', es: 'Canon del Laberinto', coord: '1481:13:650', desc_en: 'Behind a pillar near the wreck', desc_es: 'Detras de un pilar cerca del naufragio', biome: 'Labyrinth Canyons' },
+    { id: 'gc08', en: 'Sand Falls #1', es: 'Cascadas de Arena #1', coord: '463:66:1567', desc_en: 'In the crevice between rocks', desc_es: 'En la grieta entre rocas', biome: 'Sand Falls' },
+    { id: 'gc09', en: 'Grand Rift', es: 'Gran Grieta', coord: '2157:3:242', desc_en: 'Behind the pillar', desc_es: 'Detras del pilar', biome: 'Grand Rift' },
+    { id: 'gc10', en: 'The Highlands', es: 'Las Tierras Altas', coord: '1749:1:1993', desc_en: 'Under multiple big rocks', desc_es: 'Bajo multiples rocas grandes', biome: 'The Highlands' },
+    { id: 'gc11', en: 'Gate Desert', es: 'Desierto de la Puerta', coord: '928:86:-776', desc_en: 'In a hole on a rock', desc_es: 'En un agujero sobre una roca', biome: 'Gate Desert' },
+    { id: 'gc12', en: 'Sand Falls #2', es: 'Cascadas de Arena #2', coord: '707:155:1888', desc_en: 'On top of the sand falls', desc_es: 'Sobre las cascadas de arena', biome: 'Sand Falls' },
+    { id: 'gc13', en: 'Mushroom River', es: 'Rio de Hongos', coord: '-422:-56:111', desc_en: 'In the river near wooden structures', desc_es: 'En el rio cerca de las estructuras de madera', biome: 'Mushroom River' },
+    { id: 'gc14', en: 'Waterfall #1', es: 'Cascada #1', coord: '-142:181:784', desc_en: 'North of the waterfall, up on a ledge of an orange rock overhang', desc_es: 'Norte de la cascada, sobre un saliente de roca naranja', biome: 'Waterfall' },
+    { id: 'gc15', en: 'Ancient City', es: 'Ciudad Antigua', coord: '642:24:2087', desc_en: 'In one of the buildings', desc_es: 'En uno de los edificios', biome: 'Ancient City' },
+    { id: 'gc16', en: 'Lost Paradise #1', es: 'Paraiso Perdido #1', coord: '1102:124:2933', desc_en: 'In the butterfly dome', desc_es: 'En la cupula de mariposas', biome: 'Lost Paradise' },
+    { id: 'gc17', en: 'Lost Paradise #2', es: 'Paraiso Perdido #2', coord: '1102:124:2933', desc_en: 'In the butterfly dome', desc_es: 'En la cupula de mariposas', biome: 'Lost Paradise' },
+    { id: 'gc18', en: 'Waterfall #2', es: 'Cascada #2', coord: '-855:285:595', desc_en: 'On a western ledge of the waterfall mountain', desc_es: 'En un saliente oeste de la montana de la cascada', biome: 'Waterfall' },
+    { id: 'gc19', en: 'Waterfall #3', es: 'Cascada #3', coord: '-715:52:289', desc_en: 'On the eastern side of the waterfall, under a pile of rocks (may be underwater)', desc_es: 'En el lado este de la cascada, bajo un monton de rocas (puede estar bajo el agua)', biome: 'Waterfall' },
+    { id: 'gc20', en: 'Waterfall #4', es: 'Cascada #4', coord: '-979:46:646', desc_en: 'On the west side of the waterfall, under an overhang (may be underwater)', desc_es: 'En el lado oeste de la cascada, bajo un saliente (puede estar bajo el agua)', biome: 'Waterfall' },
+    { id: 'gc21', en: 'Cenote', es: 'Cenote', coord: '-183:73:1934', desc_en: 'In a cave at the bottom of the deep plunge', desc_es: 'En una cueva al fondo del sumidero profundo', biome: 'Cenote' },
+    { id: 'gc22', en: 'Volcano', es: 'Volcan', coord: '-1060:66:-128', desc_en: 'In a cave with lava', desc_es: 'En una cueva con lava', biome: 'Volcano' },
+    { id: 'gc23', en: 'Cascades', es: 'Cascadas', coord: '-1060:67:1928', desc_en: 'In an alcove covered by vines west of the waterfall (submerged in lategame)', desc_es: 'En un recodo cubierto de enredaderas al oeste de la cascada (sumergido en late game)', biome: 'Cascades' },
+    { id: 'gc24', en: 'Rainbow Caves', es: 'Cuevas Arcoiris', coord: '2111:36:1844', desc_en: 'Blazar Quartz cave, up on a higher ledge hidden behind rocks', desc_es: 'Cueva de Cuarzo Blazar, en un saliente alto escondido detras de rocas', biome: 'Rainbow Caves' },
+    { id: 'gc25', en: 'Red Falls', es: 'Cascadas Rojas', coord: '2461:126:-601', desc_en: 'Loop around the biome 3/4 ways, in a pond near a small shuttle', desc_es: 'Rodea el bioma 3/4 de camino, en un estanque cerca de una pequeña nave', biome: 'Red Falls' },
+    { id: 'gc26', en: 'Lush Desert', es: 'Desierto Verde', coord: '-648:66:-1248', desc_en: 'At the southern cliffs in the Lush Desert area', desc_es: 'En los acantilados del sur del area del Desierto Verde', biome: 'Lush Desert' },
+    { id: 'gc27', en: 'Toxic Cave', es: 'Cueva Toxica', coord: '-1036:44:-1272', desc_en: 'Northwest part of the toxic pool', desc_es: 'Parte noroeste de la pileta toxica', biome: 'Toxic Cave' },
 ];
 
 // === STATE ===
@@ -238,6 +245,7 @@ function buildChests() {
     grid.innerHTML = '';
     chests.forEach(chest => {
         const name = chest[lang];
+        const desc = lang === 'en' ? chest.desc_en : chest.desc_es;
         const checked = state.chests[chest.id];
 
         const item = document.createElement('div');
@@ -247,6 +255,7 @@ function buildChests() {
             <div>
                 <div class="check-label">📦 ${name}</div>
                 <div class="check-sub">${chest.coord}</div>
+                <div class="check-desc">${desc}</div>
             </div>
         `;
         item.addEventListener('click', () => {
