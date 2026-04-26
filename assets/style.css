@@ -221,6 +221,28 @@ img {
     background: rgba(0, 212, 255, 0.08);
 }
 
+/* Language switcher */
+.nav-lang {
+    margin-left: 4px;
+    border-left: 1px solid var(--border-color);
+    padding-left: 4px;
+}
+
+.lang-btn {
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    color: var(--accent-green) !important;
+    background: rgba(0, 255, 136, 0.08) !important;
+    border: 1px solid rgba(0, 255, 136, 0.2) !important;
+    border-radius: 6px !important;
+    letter-spacing: 1px;
+}
+
+.lang-btn:hover {
+    background: rgba(0, 255, 136, 0.15) !important;
+}
+
 /* Mobile nav */
 .nav-toggle {
     display: none;

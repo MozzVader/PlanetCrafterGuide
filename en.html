@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Crafter Guide | Terraform Your New World</title>
+    <meta name="description" content="Complete English guide for Planet Crafter. Learn how to terraform a hostile planet and make it habitable.">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">🪐 Planet Crafter <span class="logo-sub">Guide</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Home</a></li>
+                <li><a href="#primeros-pasos">Getting Started</a></li>
+                <li><a href="#terraformacion">Terraforming</a></li>
+                <li><a href="#etapas">Stages</a></li>
+                <li><a href="#recursos">Resources</a></li>
+                <li><a href="#maquinas">Machines</a></li>
+                <li><a href="#consejos">Pro Tips</a></li>
+                <li><a href="#secretos">Secrets</a></li>
+                <li class="nav-lang"><a href="es.html" class="lang-btn">ES</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+        <div class="hero-content">
+            <p class="hero-tag">COMPLETE ENGLISH GUIDE</p>
+            <h1 class="hero-title">
+                <span class="title-line">Guide for</span>
+                <span class="title-accent">Planet Crafter</span>
+            </h1>
+            <p class="hero-subtitle">Your complete manual to terraform a hostile planet and turn it into a new home for humanity.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">9</span>
+                    <span class="stat-label">Stages</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">4</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">25M</span>
+                    <span class="stat-label">Ti Goal</span>
+                </div>
+            </div>
+            <a href="#primeros-pasos" class="hero-cta">Start the Guide</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </header>
+
+    <!-- INTRODUCTION -->
+    <section id="introduccion" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">ABOUT THE GAME</span>
+                <h2>What is Planet Crafter?</h2>
+            </div>
+            <div class="intro-grid fade-in">
+                <div class="intro-card">
+                    <div class="intro-icon">🌍</div>
+                    <h3>Terraform</h3>
+                    <p>You're a convict abandoned on a barren planet. Your mission is to transform this desolate world into a habitable planet for humanity. Increase oxygen, heat, pressure, and biomass until you reach a Terraformation Index of 25 million.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="intro-icon">⛏️</div>
+                    <h3>Explore & Gather</h3>
+                    <p>Travel across the map collecting essential minerals like iron, cobalt, titanium, uranium, and the rare iridium and osmium. Find golden chests with seeds, blueprints, and valuable resources hidden in caves and ruins.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="intro-icon">🔧</div>
+                    <h3>Build</h3>
+                    <p>Craft terraforming machines, ore extractors, solar panels, rockets, and more. Each new machine unlocks new crafting possibilities and brings you one step closer to your final goal.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="intro-icon">🧬</div>
+                    <h3>Create Life</h3>
+                    <p>From the first algae to insects, animals, and birds, watch as your planet gradually comes alive. Each terraformation stage brings new life forms and transforms the landscape before your eyes.</p>
+                </div>
+            </div>
+            <div class="ti-explanation fade-in">
+                <h3>The Terraformation Index (Ti)</h3>
+                <p>Your planet's progress is measured by the <strong>Terraformation Index</strong>, which is the sum of four key categories: Oxygen, Heat, Pressure, and Biomass. Each category has its own machines and strategies. You don't need to balance them perfectly, but advancing in all simultaneously unlocks technologies faster and gets you closer to the goal of <strong>25,000,000 Ti</strong>.</p>
+                <div class="ti-formula">
+                    <div class="formula-item o2">
+                        <span class="formula-icon">O₂</span>
+                        <span class="formula-label">Oxygen</span>
+                    </div>
+                    <span class="formula-plus">+</span>
+                    <div class="formula-item heat">
+                        <span class="formula-icon">🔥</span>
+                        <span class="formula-label">Heat</span>
+                    </div>
+                    <span class="formula-plus">+</span>
+                    <div class="formula-item pressure">
+                        <span class="formula-icon">⬇️</span>
+                        <span class="formula-label">Pressure</span>
+                    </div>
+                    <span class="formula-plus">+</span>
+                    <div class="formula-item biomass">
+                        <span class="formula-icon">🌿</span>
+                        <span class="formula-label">Biomass</span>
+                    </div>
+                    <span class="formula-equals">=</span>
+                    <div class="formula-item ti">
+                        <span class="formula-icon">Ti</span>
+                        <span class="formula-label">Terraformation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GETTING STARTED -->
+    <section id="primeros-pasos" class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">BEGINNING</span>
+                <h2>Getting Started</h2>
+                <p>Everything you need to know to survive the first days and lay the foundations of your base.</p>
+            </div>
+
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Day 1: Initial Gathering</h3>
+                        <p>First things first: go out and collect basic resources. Look for <strong>iron</strong> (the most common grey rocks), <strong>carbon</strong> (black rocks), <strong>silicon</strong> (shiny crystals), and <strong>magnesium</strong>. You'll need at least 10 iron and 1 cobalt to build your first shelter. Explore the area around your pod and don't wander too far. Mark mineral locations with the beacon.</p>
+                        <div class="tip-box">
+                            <span class="tip-icon">💡</span>
+                            <span>Collect EVERYTHING you see in the first few minutes. Every mineral counts at the start.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Day 1-2: Shelter & Power</h3>
+                        <p>Build your <strong>Living Compartment</strong> (10 Iron, 1 Cobalt). This gives you a safe place to sleep and store items. Then, immediately build <strong>Solar Panels</strong> (3 Iron, 1 Magnesium) to generate power. Without power, no machine works. Place 2-3 panels to start and then add <strong>Power Storage</strong> to have reserves.</p>
+                        <div class="tip-box">
+                            <span class="tip-icon">💡</span>
+                            <span>Solar panels DON'T work at night. Build Wind Turbines for 24/7 power.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Day 2-3: Water & Oxygen</h3>
+                        <p>Absolute priority: <strong>Water Collector</strong> and <strong>O2 Extractor T1</strong> (4 Iron, 1 Silicon). You need water to drink and cook, and oxygen to, well, live. Build both as soon as possible. Water is also used in multiple crafting recipes, so you can never have enough.</p>
+                        <div class="tip-box">
+                            <span class="tip-icon">💡</span>
+                            <span>The Water Collector produces water passively. Build 2-3 so you never have to worry.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Day 3-5: Automated Extraction</h3>
+                        <p>Build an <strong>Ore Extractor T1</strong> and place it directly on an <strong>ore deposit</strong> (the conspicuous glowing mounds on the ground). This automates basic mineral collection. Meanwhile, build <strong>Heaters T1</strong> and additional <strong>O2 Extractors</strong> to start raising your terraformation indices.</p>
+                        <div class="tip-box">
+                            <span class="tip-icon">⚡</span>
+                            <span>Only place extractors ON deposits. Efficiency is MUCH higher and you get rare minerals.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Day 5+: Expansion</h3>
+                        <p>With the basics covered, it's time to expand. Build a <strong>T1 Ore Crusher</strong> to process minerals into more advanced components. Research T2 machines (you need to keep raising Ti). Start crafting <strong>Drills</strong> to mine deposits and increase pressure. Explore nearby <strong>caves</strong> looking for golden chests with seeds and blueprints. Your goal now: reach Ti 7,000 for the first stage!</p>
+                        <div class="tip-box">
+                            <span class="tip-icon">💡</span>
+                            <span>Build ONE machine of each category to ensure balanced progress from the start.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERRAFORMING -->
+    <section id="terraformacion" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">CORE MECHANIC</span>
+                <h2>Terraformation Indices</h2>
+                <p>Four pillars to transform your planet. Each one has its own machines and unique strategies.</p>
+            </div>
+
+            <div class="terra-tabs fade-in">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="o2">O₂ Oxygen</button>
+                    <button class="tab-btn" data-tab="heat">Heat</button>
+                    <button class="tab-btn" data-tab="pressure">Pressure</button>
+                    <button class="tab-btn" data-tab="biomass">Biomass</button>
+                </div>
+
+                <!-- OXYGEN -->
+                <div class="tab-content active" id="tab-o2">
+                    <div class="tab-header o2-header">
+                        <h3>Oxygen (O₂)</h3>
+                        <p>Generate a breathable atmosphere. O2 extractors are your first line, but plants and vegetubes will be your main engine.</p>
+                    </div>
+                    <div class="machine-table">
+                        <div class="machine-row">
+                            <div class="machine-tier">T1</div>
+                            <div class="machine-name">O2 Extractor</div>
+                            <div class="machine-cost">4 Iron, 1 Silicon</div>
+                            <div class="machine-rate">+0.01/s</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T2</div>
+                            <div class="machine-name">Vegetube</div>
+                            <div class="machine-cost">3 Iron, 2 Cobalt, 1 Silicon, 1 Ice</div>
+                            <div class="machine-rate">+0.02/s + Biomass</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T3</div>
+                            <div class="machine-name">O2 Generator</div>
+                            <div class="machine-cost">2 Aluminum, 2 Cobalt, 2 Super Alloy</div>
+                            <div class="machine-rate">+0.06/s</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T4</div>
+                            <div class="machine-name">Iridium O2 Generator</div>
+                            <div class="machine-cost">3 Iridium, 2 Osmium</div>
+                            <div class="machine-rate">+0.25/s</div>
+                        </div>
+                    </div>
+                    <div class="tip-box strategy-tip">
+                        <span class="tip-icon">🎯</span>
+                        <span><strong>Strategy:</strong> Vegetubes are the best early investment. They produce O2 AND biomass simultaneously. You need seeds (found in golden chests or meteorites) to activate them. Build lots of them!</span>
+                    </div>
+                </div>
+
+                <!-- HEAT -->
+                <div class="tab-content" id="tab-heat">
+                    <div class="tab-header heat-header">
+                        <h3>Heat</h3>
+                        <p>Heat the planet so life can exist. Start with simple heaters and advance to fusion reactors.</p>
+                    </div>
+                    <div class="machine-table">
+                        <div class="machine-row">
+                            <div class="machine-tier">T1</div>
+                            <div class="machine-name">Heater</div>
+                            <div class="machine-cost">3 Iron, 1 Cobalt</div>
+                            <div class="machine-rate">+0.01/s</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T2</div>
+                            <div class="machine-name">Burning Generator</div>
+                            <div class="machine-cost">2 Iron, 2 Cobalt, 2 Sulfur</div>
+                            <div class="machine-rate">+0.03/s</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T3</div>
+                            <div class="machine-name">Thermal Plant</div>
+                            <div class="machine-cost">3 Aluminum, 2 Cobalt, 1 Uranium</div>
+                            <div class="machine-rate">+0.08/s</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T4</div>
+                            <div class="machine-name">Fusion Reactor</div>
+                            <div class="machine-cost">3 Iridium, 2 Osmium</div>
+                            <div class="machine-rate">+0.25/s Heat + Pressure</div>
+                        </div>
+                    </div>
+                    <div class="tip-box strategy-tip">
+                        <span class="tip-icon">🎯</span>
+                        <span><strong>Strategy:</strong> Heat is easy to raise early on. T1 heaters are cheap and effective. Quickly advance to T2 with Burning Generators to speed things up. The T4 Fusion Reactor also generates pressure — it's insane!</span>
+                    </div>
+                </div>
+
+                <!-- PRESSURE -->
+                <div class="tab-content" id="tab-pressure">
+                    <div class="tab-header pressure-header">
+                        <h3>Pressure</h3>
+                        <p>Increase atmospheric pressure to retain gases and create favorable conditions. Rockets are your best weapon.</p>
+                    </div>
+                    <div class="machine-table">
+                        <div class="machine-row">
+                            <div class="machine-tier">T1</div>
+                            <div class="machine-name">Drill T1</div>
+                            <div class="machine-cost">2 Iron, 1 Cobalt</div>
+                            <div class="machine-rate">Pressure per deposit</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T2</div>
+                            <div class="machine-name">Rocket T1</div>
+                            <div class="machine-cost">3 Iron, 2 Aluminum, 1 Uranium</div>
+                            <div class="machine-rate">Pressure boost (per rocket)</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T3</div>
+                            <div class="machine-name">Rocket T2</div>
+                            <div class="machine-cost">3 Aluminum, 2 Super Alloy, 2 Uranium</div>
+                            <div class="machine-rate">Greater pressure boost</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T4</div>
+                            <div class="machine-name">Fusion Reactor</div>
+                            <div class="machine-cost">3 Iridium, 2 Osmium</div>
+                            <div class="machine-rate">+0.25/s Heat + Pressure</div>
+                        </div>
+                    </div>
+                    <div class="tip-box strategy-tip">
+                        <span class="tip-icon">🎯</span>
+                        <span><strong>Strategy:</strong> Launch rockets as early as possible! Each launch gives a massive pressure boost. T1 rockets are cheap (3 Iron, 2 Aluminum, 1 Uranium). Build a Launch Platform and send rockets constantly. Drills on deposits also add pressure.</span>
+                    </div>
+                </div>
+
+                <!-- BIOMASS -->
+                <div class="tab-content" id="tab-biomass">
+                    <div class="tab-header biomass-header">
+                        <h3>Biomass</h3>
+                        <p>Create life on your planet. Start with seeds and plants, evolve all the way to insects, animals, and birds.</p>
+                    </div>
+                    <div class="machine-table">
+                        <div class="machine-row">
+                            <div class="machine-tier">T1</div>
+                            <div class="machine-name">Growing Tray</div>
+                            <div class="machine-cost">2 Iron, 1 Cobalt</div>
+                            <div class="machine-rate">Plant seeds</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T2</div>
+                            <div class="machine-name">DNA Manipulator</div>
+                            <div class="machine-cost">2 Aluminum, 2 Cobalt, 1 Uranium</div>
+                            <div class="machine-rate">Create insects</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T3</div>
+                            <div class="machine-name">Algae Generator</div>
+                            <div class="machine-cost">3 Aluminum, 1 Osmium</div>
+                            <div class="machine-rate">+Passive biomass</div>
+                        </div>
+                        <div class="machine-row">
+                            <div class="machine-tier">T4</div>
+                            <div class="machine-name">Bio Reactor</div>
+                            <div class="machine-cost">3 Iridium, 2 Osmium</div>
+                            <div class="machine-rate">+Massive biomass</div>
+                        </div>
+                    </div>
+                    <div class="tip-box strategy-tip">
+                        <span class="tip-icon">🎯</span>
+                        <span><strong>Strategy:</strong> Biomass is the slowest category at the start. You need to find seeds in golden chests or meteorites. Once you have seeds, Vegetubes produce O2 and biomass simultaneously. Vegetubes are the key! Don't get frustrated if biomass progresses slowly — after the "Algae" stage, it speeds up a lot.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAGES -->
+    <section id="etapas" class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">PROGRESSION</span>
+                <h2>Terraformation Stages</h2>
+                <p>The 9 stages that transform a sterile desert into a planet full of life.</p>
+            </div>
+
+            <div class="stages-track fade-in">
+                <div class="stage-card stage-0">
+                    <div class="stage-number">0</div>
+                    <h4>Barren</h4>
+                    <div class="stage-ti">Ti 0</div>
+                    <p>The planet as you find it. No atmosphere, no water, no life. Just you and your tools.</p>
+                </div>
+                <div class="stage-card stage-1">
+                    <div class="stage-number">1</div>
+                    <h4>Blue Sky</h4>
+                    <div class="stage-ti">Ti 7,000</div>
+                    <p>Clouds start to form and rain appears. The sky changes color. Your first real victory!</p>
+                </div>
+                <div class="stage-card stage-2">
+                    <div class="stage-number">2</div>
+                    <h4>Breathable Atmosphere</h4>
+                    <div class="stage-ti">Ti 50,000</div>
+                    <p>Lakes form and vegetation starts to grow. You can take off your helmet now! (well, in the lore).</p>
+                </div>
+                <div class="stage-card stage-3">
+                    <div class="stage-number">3</div>
+                    <h4>Algae</h4>
+                    <div class="stage-ti">Ti 175,000</div>
+                    <p>Green algae appear in the water. The aquatic ecosystem begins to form. Things are getting interesting.</p>
+                </div>
+                <div class="stage-card stage-4">
+                    <div class="stage-number">4</div>
+                    <h4>Insects</h4>
+                    <div class="stage-ti">Ti 500,000</div>
+                    <p>Insects appear and flowers bloom. The planet starts to have visible life. Build the DNA Manipulator!</p>
+                </div>
+                <div class="stage-card stage-5">
+                    <div class="stage-number">5</div>
+                    <h4>Grass</h4>
+                    <div class="stage-ti">Ti 850,000</div>
+                    <p>Grass covers the planet's surface. The visual change is dramatic and beautiful. Almost a garden.</p>
+                </div>
+                <div class="stage-card stage-6">
+                    <div class="stage-number">6</div>
+                    <h4>Trees</h4>
+                    <div class="stage-ti">Ti 1,500,000</div>
+                    <p>Trees grow naturally all over the planet. The landscape transforms completely. Wow moment!</p>
+                </div>
+                <div class="stage-card stage-7">
+                    <div class="stage-number">7</div>
+                    <h4>Animals</h4>
+                    <div class="stage-ti">Ti 3,500,000</div>
+                    <p>Animals start roaming your world. Complete ecosystems. Getting close to the end!</p>
+                </div>
+                <div class="stage-card stage-8">
+                    <div class="stage-number">8</div>
+                    <h4>Birds</h4>
+                    <div class="stage-ti">Ti 10,000,000</div>
+                    <p>Birds fly in the sky. The planet is almost complete. Just one final push!</p>
+                </div>
+                <div class="stage-card stage-final">
+                    <div class="stage-number">9</div>
+                    <h4>Full Terraformation</h4>
+                    <div class="stage-ti">Ti 25,000,000</div>
+                    <p>You did it! The planet is fully terraformed and ready for humanity. Congratulations, convict!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="recursos" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">MATERIALS</span>
+                <h2>Resources & Minerals</h2>
+                <p>All the minerals you need to collect and what they're used for.</p>
+            </div>
+
+            <div class="resources-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="common">Common</button>
+                <button class="filter-btn" data-filter="uncommon">Uncommon</button>
+                <button class="filter-btn" data-filter="rare">Rare</button>
+                <button class="filter-btn" data-filter="crafted">Crafted</button>
+            </div>
+
+            <div class="resources-grid fade-in">
+                <div class="resource-card common" data-rarity="common">
+                    <div class="resource-icon">🪨</div>
+                    <h4>Iron</h4>
+                    <span class="rarity-badge common-badge">Common</span>
+                    <p>The most basic mineral. Found everywhere. Used in nearly every recipe from start to finish.</p>
+                    <div class="resource-locations">Location: Surface, deposits</div>
+                </div>
+                <div class="resource-card common" data-rarity="common">
+                    <div class="resource-icon">⬛</div>
+                    <h4>Carbon</h4>
+                    <span class="rarity-badge common-badge">Common</span>
+                    <p>Shiny black rocks. Essential for basic crafting and a water component. Easy to find early on.</p>
+                    <div class="resource-locations">Location: Surface</div>
+                </div>
+                <div class="resource-card common" data-rarity="common">
+                    <div class="resource-icon">💎</div>
+                    <h4>Silicon</h4>
+                    <span class="rarity-badge common-badge">Common</span>
+                    <p>Translucent crystals. Used in electronics and basic machines. Base of the O2 Extractor.</p>
+                    <div class="resource-locations">Location: Surface, deposits</div>
+                </div>
+                <div class="resource-card uncommon" data-rarity="uncommon">
+                    <div class="resource-icon">🔵</div>
+                    <h4>Cobalt</h4>
+                    <span class="rarity-badge uncommon-badge">Uncommon</span>
+                    <p>Blue metallic mineral. Needed for almost every T1 and T2 machine. Early collection priority.</p>
+                    <div class="resource-locations">Location: Ore deposits</div>
+                </div>
+                <div class="resource-card uncommon" data-rarity="uncommon">
+                    <div class="resource-icon">⚪</div>
+                    <h4>Titanium</h4>
+                    <span class="rarity-badge uncommon-badge">Uncommon</span>
+                    <p>Very resistant silvery mineral. Used in advanced machines, structural reinforcements, and equipment.</p>
+                    <div class="resource-locations">Location: Ore deposits</div>
+                </div>
+                <div class="resource-card uncommon" data-rarity="uncommon">
+                    <div class="resource-icon">🟡</div>
+                    <h4>Magnesium</h4>
+                    <span class="rarity-badge uncommon-badge">Uncommon</span>
+                    <p>Yellowish mineral. Key for Solar Panels and Drills. Your gateway to power and pressure.</p>
+                    <div class="resource-locations">Location: Ore deposits</div>
+                </div>
+                <div class="resource-card uncommon" data-rarity="uncommon">
+                    <div class="resource-icon">🟠</div>
+                    <h4>Sulfur</h4>
+                    <span class="rarity-badge uncommon-badge">Uncommon</span>
+                    <p>Yellow crystals. Main fuel for T2 Burning Generators for heat.</p>
+                    <div class="resource-locations">Location: Ore deposits</div>
+                </div>
+                <div class="resource-card uncommon" data-rarity="uncommon">
+                    <div class="resource-icon">🧊</div>
+                    <h4>Ice</h4>
+                    <span class="rarity-badge uncommon-badge">Uncommon</span>
+                    <p>Ice blocks. Used for Vegetubes, water, and O2. Look in the Icespires and caves.</p>
+                    <div class="resource-locations">Location: Icespires, caves</div>
+                </div>
+                <div class="resource-card uncommon" data-rarity="uncommon">
+                    <div class="resource-icon">🔷</div>
+                    <h4>Aluminum</h4>
+                    <span class="rarity-badge uncommon-badge">Uncommon</span>
+                    <p>Light metallic mineral. Gateway to T3 machines. Obtained from T2+ extractors or crushing.</p>
+                    <div class="resource-locations">Location: Deposits, Ore Crusher</div>
+                </div>
+                <div class="resource-card rare" data-rarity="rare">
+                    <div class="resource-icon">☢️</div>
+                    <h4>Uranium</h4>
+                    <span class="rarity-badge rare-badge">Rare</span>
+                    <p>Shiny green mineral. Used in Thermal Plants, DNA Manipulators, and Rockets. Worth its weight in gold!</p>
+                    <div class="resource-locations">Location: Deposits, deep caves</div>
+                </div>
+                <div class="resource-card rare" data-rarity="rare">
+                    <div class="resource-icon">💜</div>
+                    <h4>Iridium</h4>
+                    <span class="rarity-badge rare-badge">Rare</span>
+                    <p>Shiny violet mineral. The most important resource for T4. Look in caves and meteorites. Maximize its production!</p>
+                    <div class="resource-locations">Location: Caves, meteorites, Extractor T3/T4</div>
+                </div>
+                <div class="resource-card rare" data-rarity="rare">
+                    <div class="resource-icon">🌈</div>
+                    <h4>Osmium</h4>
+                    <span class="rarity-badge rare-badge">Very Rare</span>
+                    <p>The rarest mineral in the game. Only in deep caves, meteorites, and T4 Extractors. Needed for everything T4.</p>
+                    <div class="resource-locations">Location: Deep caves, meteorites, Extractor T4</div>
+                </div>
+                <div class="resource-card crafted" data-rarity="crafted">
+                    <div class="resource-icon">⚙️</div>
+                    <h4>Super Alloy</h4>
+                    <span class="rarity-badge crafted-badge">Crafted</span>
+                    <p> Crafted in the T2 Ore Crusher. Key component for T3 machines. You need cobalt, titanium, and more.</p>
+                    <div class="resource-locations">Location: T2 Ore Crusher</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MACHINES -->
+    <section id="maquinas" class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">CONSTRUCTION</span>
+                <h2>Key Machines</h2>
+                <p>All the machines you need to build, organized by category.</p>
+            </div>
+
+            <div class="machines-accordion fade-in">
+                <!-- Extraction -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-icon">⛏️</span>
+                        <span class="accordion-title">Extraction</span>
+                        <span class="accordion-arrow"></span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Ore Extractor T1</h4>
+                                <p>Automatically extracts basic minerals. Place it on a deposit for maximum efficiency and a chance at rare minerals.</p>
+                                <div class="machine-cost-tag">4 Iron, 2 Cobalt, 1 Silicon</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t2">T2</div>
+                            <div class="machine-info">
+                                <h4>Ore Extractor T2</h4>
+                                <p>Improved version that extracts minerals faster and can obtain aluminum and uranium from deposits.</p>
+                                <div class="machine-cost-tag">5 Iron, 2 Cobalt, 2 Aluminum, 1 Titanium</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t3">T3</div>
+                            <div class="machine-info">
+                                <h4>Ore Extractor T3</h4>
+                                <p>Can extract iridium from special deposits. Place these on iridium deposits for constant production.</p>
+                                <div class="machine-cost-tag">5 Aluminum, 3 Titanium, 2 Super Alloy</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t4">T4</div>
+                            <div class="machine-info">
+                                <h4>Ore Extractor T4</h4>
+                                <p>The ultimate version. Can extract osmium, the rarest mineral. Essential for the final stage of the game.</p>
+                                <div class="machine-cost-tag">4 Iridium, 2 Osmium, 2 Super Alloy</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Water Collector</h4>
+                                <p>Generates water passively from the air. Essential for survival and crafting. Build several!</p>
+                                <div class="machine-cost-tag">3 Iron, 1 Silicon</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Drill T1-T4</h4>
+                                <p>Mines ore deposits for resources and increases pressure. Each tier drills faster and gives more pressure.</p>
+                                <div class="machine-cost-tag">2 Iron, 1 Cobalt (T1)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Energy -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-icon">⚡</span>
+                        <span class="accordion-title">Energy</span>
+                        <span class="accordion-arrow"></span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Solar Panel</h4>
+                                <p>Generates power during the day. Cheap but doesn't work at night. Good initial option.</p>
+                                <div class="machine-cost-tag">3 Iron, 1 Magnesium</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Wind Turbine</h4>
+                                <p>Generates power 24 hours, though less than the solar panel during daytime. Ideal for nighttime power.</p>
+                                <div class="machine-cost-tag">4 Iron, 2 Cobalt, 1 Magnesium</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Power Storage</h4>
+                                <p>CRITICAL: Stores power for when production drops. Without these, your machines stop at night. Build many!</p>
+                                <div class="machine-cost-tag">5 Iron, 2 Cobalt, 1 Titanium</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t2">T2</div>
+                            <div class="machine-info">
+                                <h4>Biomass Burner</h4>
+                                <p>Generates power from biomass. Excellent for advanced stages when you have too much biomass.</p>
+                                <div class="machine-cost-tag">3 Iron, 2 Cobalt, 1 Aluminum</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crafting -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-icon">🔨</span>
+                        <span class="accordion-title">Crafting</span>
+                        <span class="accordion-arrow"></span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Ore Crusher T1</h4>
+                                <p>Converts basic minerals into components. Iron + Carbon = essential components. Your first step to advanced crafting.</p>
+                                <div class="machine-cost-tag">5 Iron, 2 Cobalt, 1 Silicon</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t2">T2</div>
+                            <div class="machine-info">
+                                <h4>Ore Crusher T2</h4>
+                                <p>Unlocks advanced recipes including Super Alloy. Gateway to T3 machines. High priority!</p>
+                                <div class="machine-cost-tag">5 Aluminum, 2 Titanium, 1 Super Alloy</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Microchip Factory</h4>
+                                <p>Creates microchips needed for advanced machines and equipment. Needs silicon and cobalt.</p>
+                                <div class="machine-cost-tag">4 Iron, 2 Cobalt, 2 Silicon</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Food Grower</h4>
+                                <p>Produces food to survive. You need to eat regularly. Place near water!</p>
+                                <div class="machine-cost-tag">3 Iron, 1 Cobalt, 1 Silicon</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transport -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-icon">🚀</span>
+                        <span class="accordion-title">Transport & Rockets</span>
+                        <span class="accordion-arrow"></span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Launch Platform</h4>
+                                <p>Required to launch rockets. Each rocket launched gives a massive pressure boost. Build multiple platforms to launch faster!</p>
+                                <div class="machine-cost-tag">8 Iron, 4 Cobalt, 2 Titanium</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Rocket T1</h4>
+                                <p>Basic rocket that gives a considerable pressure boost when launched. Cheap and effective, launch them constantly.</p>
+                                <div class="machine-cost-tag">3 Iron, 2 Aluminum, 1 Uranium</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t2">T2</div>
+                            <div class="machine-info">
+                                <h4>Rocket T2</h4>
+                                <p>Improved version with a greater pressure boost. Ideal when you need to push pressure quickly.</p>
+                                <div class="machine-cost-tag">3 Aluminum, 2 Super Alloy, 2 Uranium</div>
+                            </div>
+                        </div>
+                        <div class="machine-detail">
+                            <div class="machine-tier-badge t1">T1</div>
+                            <div class="machine-info">
+                                <h4>Teleporter</h4>
+                                <p>Allows instant travel between two points. You need two to create a link. Very useful for large maps.</p>
+                                <div class="machine-cost-tag">5 Iron, 3 Cobalt, 2 Titanium</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRO TIPS -->
+    <section id="consejos" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">PRO TIPS</span>
+                <h2>Advanced Tips</h2>
+                <p>Everything you wish you knew before starting (and some game-changing tricks).</p>
+            </div>
+
+            <div class="tips-grid fade-in">
+                <div class="tip-card">
+                    <div class="tip-number">01</div>
+                    <h4>Balance, but not too much</h4>
+                    <p>You don't need O2, Heat, and Pressure to be perfectly balanced. However, advancing in all three unlocks technologies faster. Build at least one machine of each category from the start to ensure everything progresses.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">02</div>
+                    <h4>Ore Deposits = Gold</h4>
+                    <p>NEVER place a T3 or T4 Extractor outside a deposit. Iridium and osmium deposits are the only passive way to get these rare resources. Find deposits with T1 extractors first, then upgrade the tier on the same spot.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">03</div>
+                    <h4>Rockets = Fast Pressure</h4>
+                    <p>Don't underestimate the power of rockets. A T1 rocket gives a massive pressure boost for just 3 Iron, 2 Aluminum, and 1 Uranium. Build 3-4 launch platforms and launch rockets constantly. It's the fastest way to increase pressure.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">04</div>
+                    <h4>Power Storage is CRITICAL</h4>
+                    <p>Power Storage units are mandatory. Without them, your machines stop when solar panels stop working at night or if your consumption exceeds production. Build at least 4-5 as soon as possible and keep adding more.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">05</div>
+                    <h4>Meteorites = Free Resources</h4>
+                    <p>Meteor showers aren't just dangerous — they're opportunities! Every meteorite that falls leaves rare minerals including iridium. Be careful but collect the remains. Later, build Meteorite Deflectors to protect your base.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">06</div>
+                    <h4>Always Explore Caves</h4>
+                    <p>Caves hide golden chests, iridium, osmium, and uranium. Bring beacons to mark your route. There are entire biomes underground. You never know what you'll find. Explore caves whenever you can!</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">07</div>
+                    <h4>Build Vertically</h4>
+                    <p>Don't put everything on the ground. Use platforms and pillars to build upwards. This lets you have more machines in less space and keeps your base organized. Spaghetti bases are a pain to manage.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">08</div>
+                    <h4>NEVER use "Supply All"</h4>
+                    <p>The "Supply All" button in the microchip factory can consume ALL your rare minerals in an instant. Supply manually and check costs before mass crafting. Many players have been ruined by this.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECRETS -->
+    <section id="secretos" class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">EXPLORATION</span>
+                <h2>Golden Chests & Secrets</h2>
+                <p>Hidden treasure scattered across the planet. These chests contain items that can change your run.</p>
+            </div>
+
+            <div class="secrets-content fade-in">
+                <div class="secret-card">
+                    <div class="secret-icon">📦</div>
+                    <h4>Golden Chests</h4>
+                    <p>There are over 20 golden chests hidden throughout the map. Each one contains unique items that can include: <strong>rare seeds</strong> (essential for biomass), <strong>advanced machine blueprints</strong>, and <strong>rare resources</strong> like iridium. Find them in caves, near wrecks, on mountaintops, and in unexpected places.</p>
+                </div>
+                <div class="secret-card">
+                    <div class="secret-icon">🗺️</div>
+                    <h4>Key Coordinates</h4>
+                    <p>Some important locations on the map worth exploring:</p>
+                    <ul class="coord-list">
+                        <li><strong>Icespires:</strong> Area with abundant ice. Approx coords: -1045, 165, -270</li>
+                        <li><strong>Lava Biome:</strong> Dangerous zone with rare minerals</li>
+                        <li><strong>The Arches:</strong> Spectacular rock formations. Approx coords: 10, 147, 1930</li>
+                        <li><strong>Iridium Caves:</strong> Best sources of iridium and osmium</li>
+                        <li><strong>Selenea (Moon):</strong> Special location unlockable in advanced stages</li>
+                    </ul>
+                </div>
+                <div class="secret-card">
+                    <div class="secret-icon">☄️</div>
+                    <h4>Meteorites</h4>
+                    <p>Every meteor shower leaves craters with valuable minerals. Visit the craters after each storm to collect iridium and other rare resources. As the game progresses, storms bring more valuable meteorites. Don't waste this free resource source!</p>
+                </div>
+                <div class="secret-card">
+                    <div class="secret-icon">🏗️</div>
+                    <h4>Wrecks</h4>
+                    <p>Find remains of previous ships with golden chests and resources. They're like mini-dungeons to explore. Each wreck has its own environment and challenges. Use beacons to mark them and return later if you don't have the right equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>🪐</span>
+                    <span>Planet Crafter Guide</span>
+                </div>
+                <p class="footer-text">Unofficial fan-made guide, built with love by fans, for fans.</p>
+                <p class="footer-text">Planet Crafter is developed by <a href="https://store.steampowered.com/app/1284190/The_Planet_Crafter/" target="_blank" rel="noopener">Miju Games</a>.</p>
+                <p class="footer-credits">Last updated: April 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

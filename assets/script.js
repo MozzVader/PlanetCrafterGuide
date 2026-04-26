@@ -262,4 +262,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // === LANGUAGE PREFERENCE ===
+    const langBtn = document.querySelector('.lang-btn');
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            const href = langBtn.getAttribute('href');
+            if (href === 'en.html') {
+                localStorage.setItem('pc-lang', 'en');
+            } else if (href === 'es.html') {
+                localStorage.setItem('pc-lang', 'es');
+            }
+        });
+    }
+
+    // Save current page language
+    if (document.documentElement.lang === 'en') {
+        localStorage.setItem('pc-lang', 'en');
+    } else if (document.documentElement.lang === 'es') {
+        localStorage.setItem('pc-lang', 'es');
+    }
+
 });
