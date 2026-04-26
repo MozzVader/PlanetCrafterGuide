@@ -93,23 +93,38 @@ const i18n = {
 };
 
 // === DATA ===
+const MAX_TI = 4000000000000; // 4 TTi
+
 const stages = [
-    { id: 's0', ti: 0,        key: 'stage0', coord: '' },
-    { id: 's1', ti: 7000,     key: 'stage1', coord: '' },
-    { id: 's2', ti: 50000,    key: 'stage2', coord: '' },
-    { id: 's3', ti: 175000,   key: 'stage3', coord: '' },
-    { id: 's4', ti: 500000,   key: 'stage4', coord: '' },
-    { id: 's5', ti: 850000,   key: 'stage5', coord: '' },
-    { id: 's6', ti: 1500000,  key: 'stage6', coord: '' },
-    { id: 's7', ti: 3500000,  key: 'stage7', coord: '' },
-    { id: 's8', ti: 10000000, key: 'stage8', coord: '' },
-    { id: 's9', ti: 25000000, key: 'stage9', coord: '' },
+    { id: 's1',  ti: 0 },                  // 1. Barren
+    { id: 's2',  ti: 175000 },             // 2. Blue Sky (175 kTi)
+    { id: 's3',  ti: 350000 },             // 3. Clouds (350 kTi)
+    { id: 's4',  ti: 875000 },             // 4. Rain (875 kTi)
+    { id: 's5',  ti: 3000000 },            // 5. Liquid Water (3 MTi)
+    { id: 's6',  ti: 50000000 },           // 6. Lakes (50 MTi)
+    { id: 's7',  ti: 200000000 },          // 7. Moss (200 MTi)
+    { id: 's8',  ti: 700000000 },          // 8. Flora (700 MTi)
+    { id: 's9',  ti: 2000000000 },         // 9. Trees (2 GTi)
+    { id: 's10', ti: 8000000000 },         // 10. Insects (8 GTi)
+    { id: 's11', ti: 32000000000 },        // 11. Breathable Atmosphere (32 GTi)
+    { id: 's12', ti: 120000000000 },       // 12. Fish (120 GTi)
+    { id: 's13', ti: 425000000000 },       // 13. Amphibians (425 GTi)
+    { id: 's14', ti: 1250000000000 },      // 14. Mammals (1.25 TTi)
+    { id: 's15', ti: 4000000000000 },      // 15. Complete Terraformation (4 TTi)
 ];
 
 const stageNames = {
-    en: ['Barren', 'Blue Sky', 'Breathable Atmosphere', 'Algae', 'Insects', 'Grass', 'Trees', 'Animals', 'Birds', 'Full Terraformation'],
-    es: ['Esteril', 'Cielo Azul', 'Atmosfera Respirable', 'Algas', 'Insectos', 'Hierba', 'Arboles', 'Animales', 'Aves', 'Terraformacion Completa'],
+    en: ['Barren', 'Blue Sky', 'Clouds', 'Rain', 'Liquid Water', 'Lakes', 'Moss', 'Flora', 'Trees', 'Insects', 'Breathable Atmosphere', 'Fish', 'Amphibians', 'Mammals', 'Complete Terraformation'],
+    es: ['Esteril', 'Cielo Azul', 'Nubes', 'Lluvia', 'Agua Liquida', 'Lagos', 'Musgo', 'Flora', 'Arboles', 'Insectos', 'Atmosfera Respirable', 'Peces', 'Anfibios', 'Mamiferos', 'Terraformacion Completa'],
 };
+
+function formatTi(val) {
+    if (val >= 1e12) return (val / 1e12).toFixed(val % 1e12 === 0 ? 0 : 2) + ' TTi';
+    if (val >= 1e9)  return (val / 1e9).toFixed(val % 1e9 === 0 ? 0 : 2) + ' GTi';
+    if (val >= 1e6)  return (val / 1e6).toFixed(val % 1e6 === 0 ? 0 : 2) + ' MTi';
+    if (val >= 1e3)  return (val / 1e3).toFixed(val % 1e3 === 0 ? 0 : 2) + ' kTi';
+    return val.toString();
+}
 
 const chests = [
     { id: 'gc01', en: 'Starting Valley', es: 'Valle Inicial', coord: '260:27:487', desc_en: 'Bottom of the wall opposite Steep Hill', desc_es: 'Al pie de la pared opuesta a Steep Hill', biome: 'Starting Valley' },
@@ -214,11 +229,7 @@ function buildStages() {
     grid.innerHTML = '';
     stages.forEach((stage, i) => {
         const name = stageNames[lang][i];
-        const tiStr = stage.ti >= 1000000
-            ? (stage.ti / 1000000).toFixed(stage.ti % 1000000 === 0 ? 0 : 1) + 'M'
-            : stage.ti >= 1000
-                ? (stage.ti / 1000) + 'K'
-                : '0';
+        const tiStr = formatTi(stage.ti);
         const checked = state.stages[stage.id];
 
         const item = document.createElement('div');
@@ -226,7 +237,7 @@ function buildStages() {
         item.innerHTML = `
             <div class="check-box">${checked ? '✓' : ''}</div>
             <div>
-                <div class="check-label">${i}. ${name}</div>
+                <div class="check-label">${i + 1}. ${name}</div>
                 ${stage.ti > 0 ? `<div class="check-sub">Ti ${tiStr}</div>` : ''}
             </div>
         `;
@@ -277,7 +288,7 @@ function restoreTi() {
     document.getElementById('tiSaveBtn').addEventListener('click', () => {
         state.ti = parseInt(input.value) || 0;
         if (state.ti < 0) state.ti = 0;
-        if (state.ti > 25000000) state.ti = 25000000;
+        if (state.ti > MAX_TI) state.ti = MAX_TI;
         saveState();
         updateSummary();
         updateTiNext();
@@ -315,7 +326,7 @@ function updateSummary() {
     // Overall: weighted average (stages 50%, chests 25%, ti 25%)
     const stagePct = stagesDone / stages.length;
     const chestPct = chestsDone / chests.length;
-    const tiPct = Math.min(state.ti / 25000000, 1);
+    const tiPct = Math.min(state.ti / MAX_TI, 1);
     const overall = Math.round((stagePct * 50 + chestPct * 25 + tiPct * 25));
 
     document.getElementById('sumOverall').textContent = `${overall}%`;
