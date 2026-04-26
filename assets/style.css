@@ -46,7 +46,7 @@
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
 
-    --max-width: 1200px;
+    --max-width: 1400px;
 }
 
 /* === Reset & Base === */
@@ -202,17 +202,18 @@ img {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 4px;
+    gap: 8px;
 }
 
 .nav-links a {
     display: block;
-    padding: 8px 14px;
+    padding: 8px 16px;
     color: var(--text-secondary);
     font-size: 0.85rem;
     font-weight: 500;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
+    white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -223,9 +224,9 @@ img {
 
 /* Language switcher */
 .nav-lang {
-    margin-left: 4px;
+    margin-left: 8px;
     border-left: 1px solid var(--border-color);
-    padding-left: 4px;
+    padding-left: 8px;
 }
 
 .lang-btn {
