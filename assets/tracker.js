@@ -9,6 +9,7 @@ const i18n = {
     en: {
         navGuide: 'Guide',
         navTracker: 'Tracker',
+        navBadge: 'Tracker',
         heroTag: 'PROGRESS TRACKER',
         heroTitle: 'Your',
         heroTitleAccent: 'Progress',
@@ -50,6 +51,7 @@ const i18n = {
     es: {
         navGuide: 'Guia',
         navTracker: 'Tracker',
+        navBadge: 'Tracker',
         heroTag: 'SEGUIMIENTO DE PROGRESO',
         heroTitle: 'Tu',
         heroTitleAccent: 'Progreso',
@@ -155,6 +157,7 @@ function saveState() {
 
 // === INIT ===
 document.addEventListener('DOMContentLoaded', () => {
+    initLangSwitch();
     applyLanguage();
     buildStages();
     buildChests();
@@ -174,10 +177,16 @@ function applyLanguage() {
         if (t[key]) el.textContent = t[key];
     });
 
-    // Lang switch button
+    // Update lang switch button label (NO event listener here - registered once in initLangSwitch)
     const langSwitch = document.getElementById('langSwitch');
     if (langSwitch) {
         langSwitch.textContent = lang === 'en' ? 'ES' : 'EN';
+    }
+}
+
+function initLangSwitch() {
+    const langSwitch = document.getElementById('langSwitch');
+    if (langSwitch) {
         langSwitch.href = '#';
         langSwitch.addEventListener('click', (e) => {
             e.preventDefault();
