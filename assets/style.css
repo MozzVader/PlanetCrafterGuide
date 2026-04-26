@@ -973,6 +973,11 @@ img {
     color: var(--accent-yellow);
 }
 
+.very-rare-badge {
+    background: rgba(255, 68, 68, 0.1);
+    color: #f66;
+}
+
 .resource-card p {
     font-size: 0.85rem;
     color: var(--text-secondary);
