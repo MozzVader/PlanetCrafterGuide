@@ -77,7 +77,7 @@ const i18n = {
         chestsTitle: 'Cofres Dorados',
         chestsDesc: 'Tilde cada cofre dorado que encuentres.',
         bunkersTitle: 'Bunkers',
-        bunkersDesc: 'Tilde cada bunker que explores.'}, {
+        bunkersDesc: 'Tilde cada bunker que explores.',
         exportTitle: 'Exportar Progreso',
         exportDesc: 'Copia este codigo para guardar tu progreso. Podes importarlo despues en cualquier navegador.',
         btnClose: 'Cerrar',
