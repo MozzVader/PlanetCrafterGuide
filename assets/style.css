@@ -528,7 +528,11 @@ img {
     position: relative;
 }
 
-.timeline::before {
+.timeline-items {
+    position: relative;
+}
+
+.timeline-items::before {
     content: '';
     position: absolute;
     left: 24px;
@@ -1469,7 +1473,7 @@ img {
         font-size: 0.75rem;
     }
 
-    .timeline::before {
+    .timeline-items::before {
         left: 19px;
     }
 
