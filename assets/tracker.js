@@ -19,6 +19,7 @@ const i18n = {
         btnReset: 'Reset All',
         sumStages: 'Stages',
         sumChests: 'Golden Chests',
+        sumBunkers: 'Bunkers',
         sumTi: 'Current Ti',
         sumOverall: 'Overall',
         overallProgress: 'Overall Progress',
@@ -30,6 +31,8 @@ const i18n = {
         stagesDesc: 'Mark each stage as you complete it.',
         chestsTitle: 'Golden Chests',
         chestsDesc: 'Check off each golden chest you find.',
+        bunkersTitle: 'Bunkers',
+        bunkersDesc: 'Check off each bunker you explore.',
         exportTitle: 'Export Progress',
         exportDesc: 'Copy this code to save your progress. You can import it later on any browser.',
         btnClose: 'Close',
@@ -61,6 +64,7 @@ const i18n = {
         btnReset: 'Resetear Todo',
         sumStages: 'Etapas',
         sumChests: 'Cofres Dorados',
+        sumBunkers: 'Bunkers',
         sumTi: 'Ti Actual',
         sumOverall: 'General',
         overallProgress: 'Progreso General',
@@ -72,6 +76,8 @@ const i18n = {
         stagesDesc: 'Marca cada etapa a medida que la completes.',
         chestsTitle: 'Cofres Dorados',
         chestsDesc: 'Tilde cada cofre dorado que encuentres.',
+        bunkersTitle: 'Bunkers',
+        bunkersDesc: 'Tilde cada bunker que explores.'}, {
         exportTitle: 'Exportar Progreso',
         exportDesc: 'Copia este codigo para guardar tu progreso. Podes importarlo despues en cualquier navegador.',
         btnClose: 'Cerrar',
@@ -156,13 +162,25 @@ const chests = [
     { id: 'gc27', en: 'Toxic Cave', es: 'Cueva Toxica', coord: '-1036:44:-1272', desc_en: 'Northwest part of the toxic pool', desc_es: 'Parte noroeste de la pileta toxica', biome: 'Toxic Cave' },
 ];
 
+const bunkers = [
+    { id: 'bk01', en: 'Dune Desert', es: 'Desierto de Dunas', coord: '1170:8:1288', desc_en: '1 room (built by Ikhlas)', desc_es: '1 habitacion (construido por Ikhlas)' },
+    { id: 'bk02', en: 'The Highlands', es: 'Las Tierras Altas', coord: '1135:15:2355', desc_en: '2 rooms connected by cave (Ikhlas)', desc_es: '2 habitaciones conectadas por cueva (Ikhlas)' },
+    { id: 'bk03', en: 'Gate Desert', es: 'Desierto de la Puerta', coord: '700:35:-882', desc_en: '2 rooms, submerged (Ikhlas)', desc_es: '2 habitaciones sumergidas (Ikhlas)' },
+    { id: 'bk04', en: 'Meteor Crater (small)', es: 'Crater de Meteorito (chico)', coord: '-304:4:1342', desc_en: '2 rooms, submerged (Ikhlas)', desc_es: '2 habitaciones sumergidas (Ikhlas)' },
+    { id: 'bk05', en: 'Meteor Crater (large)', es: 'Crater de Meteorito (grande)', coord: '-578:88:1523', desc_en: 'Large complex with Golden Effigy (Ikhlas)', desc_es: 'Complejo grande con Golden Effigy (Ikhlas)' },
+    { id: 'bk06', en: 'Cenote', es: 'Cenote', coord: '-130:-4:2174', desc_en: 'Biodome, submerged (Ikhlas)', desc_es: 'Biodomo sumergido (Ikhlas)' },
+    { id: 'bk07', en: 'Wasteland', es: 'Yermo', coord: '-318:35:-700', desc_en: 'Large complex (Xiaodan)', desc_es: 'Complejo grande (Xiaodan)' },
+    { id: 'bk08', en: 'Volcano', es: 'Volcan', coord: '-863:91:-419', desc_en: 'Large complex (Xiaodan)', desc_es: 'Complejo grande (Xiaodan)' },
+    { id: 'bk09', en: 'Lush Desert', es: 'Desierto Verde', coord: '114:53:-1608', desc_en: '2 rooms connected by cave (Jermyi)', desc_es: '2 habitaciones conectadas por cueva (Jermyi)' },
+];
+
 // === STATE ===
 const STORAGE_KEY = 'pc-tracker-data';
 let lang = localStorage.getItem('pc-lang') || 'en';
 let state = loadState();
 
 function defaultState() {
-    return { stages: {}, chests: {}, ti: 0 };
+    return { stages: {}, chests: {}, bunkers: {}, ti: 0 };
 }
 
 function loadState() {
@@ -183,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage();
     buildStages();
     buildChests();
+    buildBunkers();
     updateSummary();
     restoreTi();
     initStarfield();
@@ -217,6 +236,7 @@ function initLangSwitch() {
             applyLanguage();
             buildStages();
             buildChests();
+            buildBunkers();
             updateSummary();
             updateTiNext();
         });
@@ -279,6 +299,34 @@ function buildChests() {
     });
 }
 
+function buildBunkers() {
+    const grid = document.getElementById('bunkersGrid');
+    grid.innerHTML = '';
+    bunkers.forEach(bunker => {
+        const name = bunker[lang];
+        const desc = lang === 'en' ? bunker.desc_en : bunker.desc_es;
+        const checked = state.bunkers[bunker.id];
+
+        const item = document.createElement('div');
+        item.className = `checklist-item${checked ? ' checked' : ''}`;
+        item.innerHTML = `
+            <div class="check-box">${checked ? '✓' : ''}</div>
+            <div>
+                <div class="check-label">🏗️ ${name}</div>
+                <div class="check-sub">${bunker.coord}</div>
+                <div class="check-desc">${desc}</div>
+            </div>
+        `;
+        item.addEventListener('click', () => {
+            state.bunkers[bunker.id] = !state.bunkers[bunker.id];
+            saveState();
+            buildBunkers();
+            updateSummary();
+        });
+        grid.appendChild(item);
+    });
+}
+
 // === TI INPUT ===
 function restoreTi() {
     const input = document.getElementById('tiInput');
@@ -318,16 +366,19 @@ function updateTiNext() {
 function updateSummary() {
     const stagesDone = Object.values(state.stages).filter(Boolean).length;
     const chestsDone = Object.values(state.chests).filter(Boolean).length;
+    const bunkersDone = Object.values(state.bunkers).filter(Boolean).length;
 
     document.getElementById('sumStages').textContent = `${stagesDone}/${stages.length}`;
     document.getElementById('sumChests').textContent = `${chestsDone}/${chests.length}`;
+    document.getElementById('sumBunkers').textContent = `${bunkersDone}/${bunkers.length}`;
     document.getElementById('sumTi').textContent = state.ti.toLocaleString();
 
-    // Overall: weighted average (stages 50%, chests 25%, ti 25%)
+    // Overall: weighted average (stages 40%, chests 20%, bunkers 15%, ti 25%)
     const stagePct = stagesDone / stages.length;
     const chestPct = chestsDone / chests.length;
+    const bunkerPct = bunkersDone / bunkers.length;
     const tiPct = Math.min(state.ti / MAX_TI, 1);
-    const overall = Math.round((stagePct * 50 + chestPct * 25 + tiPct * 25));
+    const overall = Math.round((stagePct * 40 + chestPct * 20 + bunkerPct * 15 + tiPct * 25));
 
     document.getElementById('sumOverall').textContent = `${overall}%`;
     document.getElementById('overallPct').textContent = `${overall}%`;
@@ -373,6 +424,7 @@ function initModals() {
                 document.getElementById('tiInput').value = state.ti || '';
                 buildStages();
                 buildChests();
+                buildBunkers();
                 updateSummary();
                 updateTiNext();
                 document.getElementById('importModal').classList.remove('active');
@@ -398,6 +450,7 @@ function initModals() {
         document.getElementById('tiInput').value = '';
         buildStages();
         buildChests();
+        buildBunkers();
         updateSummary();
         updateTiNext();
         document.getElementById('resetModal').classList.remove('active');
